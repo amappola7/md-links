@@ -3,5 +3,29 @@
   "version": "0.1.0",
   "engines": {
     "node": ">=14.x"
-  }
+  },
+  "description": "## Índice",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amappola7/md-links.git"
+  },
+  "keywords": [
+    "markdown",
+    "links"
+  ],
+  "author": "Amappola (Ana María Porras Pinto)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amappola7/md-links/issues"
+  },
+  "homepage": "https://github.com/amappola7/md-links#readme",
+  "type": "module"
 }
