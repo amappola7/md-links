@@ -27,5 +27,8 @@
     "url": "https://github.com/amappola7/md-links/issues"
   },
   "homepage": "https://github.com/amappola7/md-links#readme",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "node-fetch": "^3.2.10"
+  }
 }
