@@ -1,8 +1,7 @@
-import {jest} from '@jest/globals';
 import {checkIfPathExists , getAbsolutePath , checkDirOrFile , checkFileExtension , getPathsOfMdFiles , getLinks , getFileLinks , validateLink} from '../../lib/mdLinksResources'
-import {dataMock} from '../manualMocks/dataMock.js'
 import {pathsMock, singlePath} from '../manualMocks/pathsMock.js'
 import { contentFile , linksFile , nullContent} from '../manualMocks/contentFileMock.js'
+import {brokenLink, brokenLinkValidated, getFilesLinksMock, linkToValidate, linkValidated} from '../manualMocks/getFilesLinksMock.js'
 
 describe('Tests for checkIfPathExists()', () => {
   it('should return true if path exists', () => {
@@ -69,5 +68,23 @@ describe('Tests for getLinks()', () => {
 })
 
 describe('Tests for getFileLinks()', () => {
-  it('should return a promise that resolves ')
+  it('should return a promise that resolves into an array of links', () => {
+    return getFileLinks('test/manualMocks/file.md').then(result => {
+      expect(result).toEqual(getFilesLinksMock);
+    });
+  })
+})
+
+describe('Tests for validateLinks()', () => {
+  it('should return an object with the information of the response of the HTTP request', () => {
+    return validateLink(linkToValidate).then(result => {
+      expect(result).toEqual(linkValidated);
+    });
+  })
+
+  it('should return an object with the information of the response of the HTTP request and an error when the link is broken', () => {
+    return validateLink(brokenLink).then(result => {
+      expect(result).toEqual(brokenLinkValidated);
+    });
+  })
 })
