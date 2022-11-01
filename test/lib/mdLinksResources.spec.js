@@ -1,15 +1,16 @@
 import {jest} from '@jest/globals';
-import {checkIfPathExists , getAbsolutePath , checkDirOrFile , checkFileExtension , getPathsOfMdFiles , getLinks , validateLink} from '../../lib/mdLinksResources'
-import {dataMock} from '../dataMock.js'
-import {pathsMock} from '../pathsMock.js'
+import {checkIfPathExists , getAbsolutePath , checkDirOrFile , checkFileExtension , getPathsOfMdFiles , getLinks , getFileLinks , validateLink} from '../../lib/mdLinksResources'
+import {dataMock} from '../manualMocks/dataMock.js'
+import {pathsMock, singlePath} from '../manualMocks/pathsMock.js'
+import { contentFile , linksFile , nullContent} from '../manualMocks/contentFileMock.js'
 
 describe('Tests for checkIfPathExists()', () => {
   it('should return true if path exists', () => {
-    expect(checkIfPathExists('/home/amappola/programming_CS/3webDevelopment/3laboratoria/1proyectosBootcamp/4.4markdownLinks/md-links/lib/cli.js')).toBe(true)
+    expect(checkIfPathExists('test/manualMocks')).toBe(true)
   })
 
   it('should return false if path does not exists', () => {
-    expect(checkIfPathExists('/home/amappola/programming_CS/3webDevelopment/3laboratoria/1proyectosBootcamp/break/path')).toBe(false)
+    expect(checkIfPathExists('/home//break/path')).toBe(false)
   })
 })
 
@@ -25,30 +26,48 @@ describe('Tests for getAbsolutePath()', () => {
 
 describe('Tests for checkDirOrFile()', () => {
   it('should return true if the path goes to a directory', () => {
-    expect(checkDirOrFile('/home/amappola/programming_CS/3webDevelopment/3laboratoria/1proyectosBootcamp/4.4markdownLinks/md-links/test')).toBe(true)
+    expect(checkDirOrFile('test/manualMocks')).toBe(true)
   })
 
   it('should return false if the path goes to a file', () => {
-    expect(checkDirOrFile('/home/amappola/programming_CS/3webDevelopment/3laboratoria/1proyectosBootcamp/4.4markdownLinks/md-links/README.md')).toBe(false)
+    expect(checkDirOrFile('test/manualMocks/contentFileMock.js')).toBe(false)
   })
 })
 
 describe('Tests for checkFileExtension()', () => {
   it('should return true if the path goes to a .md file', () => {
-    expect(checkFileExtension('/home/amappola/programming_CS/3webDevelopment/3laboratoria/1proyectosBootcamp/4.4markdownLinks/md-links/README.md')).toBe(true)
+    expect(checkFileExtension('test/manualMocks/mdFilesMock/cipher.md')).toBe(true)
   })
 
   it('should return false if the path goes to a file with any extension except .md', () => {
-    expect(checkFileExtension('/home/amappola/programming_CS/3webDevelopment/3laboratoria/1proyectosBootcamp/4.4markdownLinks/md-links/lib/mdLinks.js')).toBe(false)
+    expect(checkFileExtension('test/manualMocks/dataMock.js')).toBe(false)
   })
 })
 
 describe('Tests for getPathsOfMdFiles()', () => {
   it('should return an array of paths', () => {
-    expect(getPathsOfMdFiles('/home/amappola/programming_CS/3webDevelopment/3laboratoria/1proyectosBootcamp/4.4markdownLinks/md-links/test/mdFilesMock')).toEqual(pathsMock)
+    expect(getPathsOfMdFiles('test/manualMocks/mdFilesMock')).toEqual(pathsMock)
+  })
+
+  it('should return an array with one path if the path goes to a single file', () => {
+    expect(getPathsOfMdFiles('test/manualMocks/mdFilesMock/README.md')).toEqual(singlePath)
   })
 
   it('should return an error message when the path does not go to a directory or .md file', () => {
-    expect(getPathsOfMdFiles('/home/amappola/programming_CS/3webDevelopment/3laboratoria/1proyectosBootcamp/4.4markdownLinks/md-links/test/pathsMock.js')).toMatch('Path is not a directory or .md file');
+    expect(getPathsOfMdFiles('test/manualMocks/contentFileMock.js')).toMatch('Path is not a directory or .md file');
   })
+})
+
+describe('Tests for getLinks()', () => {
+  it('should return an array of objects with links in it', () => {
+    expect(getLinks(contentFile, 'test/manualMocks/contentFileMock.js')).toEqual(linksFile);
+  })
+
+  it('should return an empty array when the content file does not contain links', () => {
+    expect(getLinks(nullContent, 'test/broken/path')).toEqual([])
+  })
+})
+
+describe('Tests for getFileLinks()', () => {
+  it('should return a promise that resolves ')
 })
