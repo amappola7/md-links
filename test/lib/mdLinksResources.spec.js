@@ -28,7 +28,7 @@ describe('Tests for checkDirOrFile()', () => {
   })
 
   it('should return false if the path goes to a file', () => {
-    expect(checkDirOrFile('test/manualMocks/contentFileMock.js')).toBe(false)
+    expect(checkDirOrFile('test/manualMocks/mdLinksResourcesMocks.js')).toBe(false)
   })
 })
 
@@ -52,7 +52,7 @@ describe('Tests for getPathsOfMdFiles()', () => {
   })
 
   it('should return an error message when the path does not go to a directory or .md file', () => {
-    expect(getPathsOfMdFiles('test/manualMocks/contentFileMock.js')).toMatch('Path is not a directory or .md file');
+    expect(getPathsOfMdFiles('test/manualMocks/mdLinksResourcesMocks.js')).toMatch('Path is not a directory or .md file');
   })
 })
 
@@ -68,7 +68,7 @@ describe('Tests for getLinks()', () => {
 
 describe('Tests for getFileLinks()', () => {
   it('should return a promise that resolves into an array of links', () => {
-    return getFileLinks('test/manualMocks/file.md').then(result => {
+    return getFileLinks('test/manualMocks/mdFilesMock/file.md').then(result => {
       expect(result).toEqual(getFilesLinksMock);
     });
   })

@@ -1,7 +1,8 @@
 export const pathsMock = [
   'test/manualMocks/mdFilesMock/README.md',
   'test/manualMocks/mdFilesMock/cipher.md',
-  'test/manualMocks/mdFilesMock/dataLovers/README.md'
+  'test/manualMocks/mdFilesMock/dataLovers/README.md',
+  'test/manualMocks/mdFilesMock/file.md'
 ]
 
 export const singlePath = [
@@ -46,12 +47,12 @@ export const getFilesLinksMock = [
   {
     href: 'https://es.wikipedia.org/wiki/Markdown',
     text: 'Markdown',
-    file: 'test/manualMocks/file.md',
+    file: 'test/manualMocks/mdFilesMock/file.md',
   },
   {
     href: 'https://nodejs.org/',
     text: 'Node.js',
-    file: 'test/manualMocks/file.md',
+    file: 'test/manualMocks/mdFilesMock/file.md',
   }
 ]
 
