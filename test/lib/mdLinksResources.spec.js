@@ -1,7 +1,6 @@
 import {checkIfPathExists , getAbsolutePath , checkDirOrFile , checkFileExtension , getPathsOfMdFiles , getLinks , getFileLinks , validateLink} from '../../lib/mdLinksResources'
-import {pathsMock, singlePath} from '../manualMocks/pathsMock.js'
-import { contentFile , linksFile , nullContent} from '../manualMocks/contentFileMock.js'
-import {brokenLink, brokenLinkValidated, getFilesLinksMock, linkToValidate, linkValidated} from '../manualMocks/getFilesLinksMock.js'
+import {pathsMock, singlePath , contentFile , nullContent , linksFile , getFilesLinksMock, linkToValidate, linkValidated , brokenLink, brokenLinkValidated } from '../manualMocks/mdLinksResourcesMocks.js'
+
 
 describe('Tests for checkIfPathExists()', () => {
   it('should return true if path exists', () => {

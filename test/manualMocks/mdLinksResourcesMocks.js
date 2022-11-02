@@ -1,3 +1,13 @@
+export const pathsMock = [
+  'test/manualMocks/mdFilesMock/README.md',
+  'test/manualMocks/mdFilesMock/cipher.md',
+  'test/manualMocks/mdFilesMock/dataLovers/README.md'
+]
+
+export const singlePath = [
+  'test/manualMocks/mdFilesMock/README.md',
+]
+
 export const contentFile = `## 1. Preámbulo
 
 [Markdown](https://es.wikipedia.org/wiki/Markdown) es un lenguaje de marcado
@@ -32,32 +42,44 @@ export const linksFile = [
   }
 ];
 
-export const statsWithOutValidate = {
-  totalLinks: 2,
-  uniqueLinks: 2,
-}
-
-export const linksValidated = [
+export const getFilesLinksMock = [
   {
     href: 'https://es.wikipedia.org/wiki/Markdown',
     text: 'Markdown',
-    file: 'test/manualMocks/contentFileMock.js',
-    id: 1,
-    status: 200,
-    statusText: 'OK'
+    file: 'test/manualMocks/file.md',
   },
   {
     href: 'https://nodejs.org/',
     text: 'Node.js',
-    file: 'test/manualMocks/contentFileMock.js',
-    id: 2,
-    status: 200,
-    statusText: 'OK'
+    file: 'test/manualMocks/file.md',
   }
-];
+]
 
-export const statsWithValidate = {
-  totalLinks: 2,
-  uniqueLinks: 2,
-  brokenLinks: 0,
+export const linkToValidate = {
+    href: 'https://nodejs.org/',
+    text: 'Node.js',
+    file: 'test/manualMocks/file.md',
+  };
+
+export const linkValidated={
+  href: 'https://nodejs.org/',
+  text: 'Node.js',
+  file: 'test/manualMocks/file.md',
+  status: 200,
+  statusText: 'OK'
+};
+
+export const brokenLink = {
+    href: 'http://community.laboratoria.la/t/modulos-librerias-paquetes-frameworks-cual-es-la-diferencia/175',
+    text: 'Módulos, librerías, paquetes, frameworks... ¿cuál es la diferencia?',
+    file: 'test/manualMocks/mdFilesMock/README.md',
+}
+
+export const brokenLinkValidated = {
+    href: 'http://community.laboratoria.la/t/modulos-librerias-paquetes-frameworks-cual-es-la-diferencia/175',
+    text: 'Módulos, librerías, paquetes, frameworks... ¿cuál es la diferencia?',
+    file: 'test/manualMocks/mdFilesMock/README.md',
+    status: null,
+    statusText: null,
+    error: 'Could not make HTTP request'
 }

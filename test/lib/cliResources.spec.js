@@ -1,5 +1,5 @@
 import {getStatsWithoutValidate , getStatsWithValidate, evaluateArguments} from '../../lib/cliResources.js';
-import { linksFile, statsWithOutValidate, linksValidated, statsWithValidate } from '../manualMocks/contentFileMock.js'
+import { linksFile, statsWithOutValidate, linksValidated, statsWithValidate } from '../manualMocks/cliResourcesMocks.js'
 
 describe('Test for getStatsWithoutValidate()', () => {
   it('should return the stats of total links and unique links', () => {
