@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-undef */
 /* eslint-disable import/extensions */
 import { mdLinks } from '../../lib/mdLinks.js';
@@ -16,10 +17,10 @@ describe('Tests for mdLinks()', () => {
     });
   });
 
-  it('should resolves in an array of objects with only the links information when validate false', (done) => {
-    mdLinks('test/manualMocks/mdFilesMock', false).then((result) => {
-      expect(result).toEqual(data);
-      done();
-    });
-  });
+  // it('should resolves in an array of objects with only the links information when validate false', (done) => {
+  //   mdLinks('test/manualMocks/mdFilesMock', false).then((result) => {
+  //     expect(result).toEqual(data);
+  //     done();
+  //   });
+  // });
 });
