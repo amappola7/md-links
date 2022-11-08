@@ -1,11 +1,11 @@
 {
-  "name": "md-links",
-  "version": "0.1.0",
+  "name": "mdlinks-amappola",
+  "version": "1.0.0",
   "engines": {
     "node": ">=14.x"
   },
-  "description": "",
-  "main": "index.js",
+  "description": "Md Links is a librarie that allows to extract links from markdown files and validate its status. Also you can perform some stats about the links.",
+  "main": "lib/mdLinks.js",
   "directories": {
     "lib": "lib",
     "test": "test"
