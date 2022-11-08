@@ -8,10 +8,10 @@
 import process from 'node:process';
 import chalk from 'chalk';
 import figlet from 'figlet';
-import { mdLinks } from './mdLinks.js';
+import { mdLinks } from '../lib/mdLinks.js';
 import {
   getStatsWithoutValidate, getStatsWithValidate, evaluateArguments,
-} from './cliResources.js';
+} from '../lib/cliResources.js';
 
 /**
  * Command Line Interface Function. It extracts all http / https links from a directory or file
